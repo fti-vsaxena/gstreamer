@@ -26,3 +26,19 @@ gst-launch-1.0 -e multifilesrc location="frame%01d.png" caps="image/png,framerat
 gst-launch-1.0 v4l2src num-buffers=1 ! queue ! x264enc ! mp4mux ! filesink location=video.mp4
 
 gst-launch-1.0 v4l2src device=/dev/video0 ! timeoverlay halignment=right valignment=bottom ! clockoverlay halignment=left valignment=bottom time-format="%Y/%m/%d %H:%M:%S" ! tee name=t ! queue ! autovideosink t. ! queue ! videorate ! video/x-raw,framerate=1/1 ! jpegenc ! multifilesink location="./frame%06d.png"
+
+
+# LINKS-
+
+1. http://4youngpadawans.com/stream-live-video-to-browser-using-gstreamer/
+2. https://docs.nvidia.com/jetson/l4t/index.html#page/Tegra%20Linux%20Driver%20Package%20Development%20Guide/accelerated_gstreamer.html#wwpID0E06E0HA
+3. https://gstreamer.freedesktop.org/data/doc/gstreamer/head/gst-plugins-good/html/gst-plugins-good-plugins-splitmuxsink.html
+4. https://github.com/GStreamer/gst-plugins-bad/blob/master/ext/openh264/gstopenh264enc.cpp
+5. https://gstreamer.freedesktop.org/documentation/additional/design/overview.html?gi-language=c
+6. https://gstreamer.freedesktop.org/documentation/additional/design/overview.html?gi-language=c
+
+
+# GRAPH
+
+https://developer.ridgerun.com/wiki/index.php/How_to_generate_a_Gstreamer_pipeline_diagram_%28graph%29
+
